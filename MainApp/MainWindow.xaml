@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainApp"
+        xmlns:views="clr-namespace:MainApp.Views"
+        xmlns:viewmodel="clr-namespace:MainApp.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        
+        Title="Contact application" Height="450" Width="300">
+    <Grid Margin="10">
+        <ContentControl Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+                
+                <DataTemplate DataType="{x:Type viewmodel:ListContactsViewModel}">
+                    <views:ListContactsView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodel:AddContactViewModel}">
+                    <views:AddContactView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewmodel:EditContactViewModel}">
+                    <views:EditContactView />
+                </DataTemplate>
+
+            </ContentControl.Resources>
+               
+         
+            
+        </ContentControl> 
 
     </Grid>
 </Window>
