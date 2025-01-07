@@ -4,7 +4,7 @@ namespace Shared.Interface
 {
     public interface IContactRepository
     {
-        List<ContactObjects>? GetContacts();
+        List<ContactObjects> GetContacts();
         bool SaveContacts(List<ContactObjects> contact);
     }
 }

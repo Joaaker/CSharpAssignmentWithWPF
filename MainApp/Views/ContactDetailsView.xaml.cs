@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace MainApp.Views
 {
     /// <summary>
-    /// Interaction logic for EditContactView.xaml
+    /// Interaction logic for ContactDetailsView.xaml
     /// </summary>
-    public partial class EditContactView : UserControl
+    public partial class ContactDetailsView : UserControl
     {
-        public EditContactView()
+        public ContactDetailsView()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

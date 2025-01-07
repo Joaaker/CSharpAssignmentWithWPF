@@ -7,7 +7,9 @@
         xmlns:views="clr-namespace:MainApp.Views"
         xmlns:viewmodel="clr-namespace:MainApp.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        
 
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         
         Title="Contact application" Height="450" Width="300">
@@ -24,6 +26,10 @@
                 </DataTemplate>
 
                 <DataTemplate DataType="{x:Type viewmodel:EditContactViewModel}">
+                    <views:EditContactView />
+                </DataTemplate>
+                
+                <DataTemplate DataType="{x:Type viewmodel:ContactDetailsViewModel}">
                     <views:EditContactView />
                 </DataTemplate>
 

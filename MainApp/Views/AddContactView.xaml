@@ -13,30 +13,31 @@
     <Grid Margin="5">
         <StackPanel>
 
-            <Label Content="{Binding Title}" Margin="10" HorizontalAlignment="Center" Foreground="Red"/>
+            <Label Content="Add new contact" Margin="10" HorizontalAlignment="Center"/>
 
             <Label Content="First Name" Margin="0, 10"/>
-            <TextBox TextChanged="TextBox_TextChanged"/>
+            <TextBox Text="{Binding FirstName}" />
 
             <Label Content="Last Name" Margin="0, 10"/>
-            <TextBox/>
+            <TextBox Text="{Binding LastName}" />
 
             <Label Content="Email" Margin="0, 10"/>
-            <TextBox/>
+            <TextBox Text="{Binding Email}"/>
 
             <Label Content="Phone Number" Margin="0, 10"/>
-            <TextBox/>
-
+            <TextBox Text="{Binding PhoneNumber}" />
+            
             <Label Content="Address" Margin="0, 10"/>
-            <TextBox/>
+            <TextBox Text="{Binding Address}" />
 
             <Label Content="Zip Code" Margin="0, 10"/>
-            <TextBox/>
+            <TextBox Text="{Binding ZipCode}" />
 
             <Label Content="City" Margin="0, 10"/>
-            <TextBox/>
-            <Button Content="Save" Margin="20"/>
-            <Button Content="Back" Margin="20" Command="{Binding GoToListContactsCommand}"/>
+            <TextBox Text="{Binding City}" />
+            
+            <Button Command="{Binding SaveCommand}" Content="Save" Margin="20"/>
+            <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="20" />
 
         </StackPanel>
 

@@ -9,7 +9,7 @@
              
              mc:Ignorable="d" 
              Background="White"
-             d:DesignHeight="450" d:DesignWidth="300">
+             d:DesignHeight="650" d:DesignWidth="300">
 
     <Grid Margin="5">
         <StackPanel Margin="0,0,0,-12">
@@ -32,12 +32,13 @@
             <TextBox/>
 
             <Label Content="Zip Code" Margin="0, 10"/>
-            <TextBox/>
+            <TextBox Text="deasd" />
 
             <Label Content="City" Margin="0, 10"/>
-            <TextBox/>
+            <TextBox Text="test" />
+            
             <Button Content="Save" Margin="20"/>
-            <Button Content="Back" Margin="20" Command="{Binding GoToListContactsCommand}"/>
+            <Button Content="Back" Margin="20" Command="{Binding CancelCommand}"/>
 
         </StackPanel>
 

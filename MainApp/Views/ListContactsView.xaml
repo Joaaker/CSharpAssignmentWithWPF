@@ -6,24 +6,61 @@
              xmlns:local="clr-namespace:MainApp.Views"
              xmlns:viewmodels="clr-namespace:MainApp.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:ListContactsViewModel}"
-             
-             
+             xmlns:models="clr-namespace:Shared.Models;assembly=Shared"
+
              mc:Ignorable="d" 
              Background="White"
              d:DesignHeight="450" d:DesignWidth="300">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto">
-
-
-            </RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.RowSpan="2">
-            <Label Margin="10" Content="Contact list" FontWeight="Bold" FontSize="16"/>
-            <Button Command="{Binding GoToAddContactCommand}" x:Name="AddNewContact" Content="Add a new contact" Grid.Row="0" Grid.RowSpan="2"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Contact list"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Grid.Row="0" Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   Margin="10" />
+
+        <Button Content="Add a new contact"
+                Grid.Row="1" Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Command="{Binding GoToAddContactCommand}"
+                HorizontalAlignment="Center"/>
+
+        <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" ItemsSource="{Binding ContactList}">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="models:ContactObjects">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding FirstName}" Grid.Column="0" Margin="10,5" />
+                        <TextBlock Text="{Binding LastName}" Grid.Column="1" Margin="10,5" />
+                        <TextBlock Text="{Binding PhoneNumber}" Grid.Column="2" Margin="10,5" />
+                        <Button Content="Edit"
+                                CommandParameter="{Binding .}"
+                                Command="{Binding DataContext.GoToEditContactCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Width="50"
+                                Height="30"
+                                Grid.Column="3"
+                                Margin="10,5" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

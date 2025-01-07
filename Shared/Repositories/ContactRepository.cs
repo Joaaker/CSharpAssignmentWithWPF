@@ -23,11 +23,15 @@ public class ContactRepository(IFileService fileService) : IContactRepository
             return false;
         }
     }
-    public List<ContactObjects>? GetContacts()
+    public List<ContactObjects> GetContacts()
     {
         try
         {
             var jsonData = _fileService.GetContentFromFile();
+
+            if (string.IsNullOrWhiteSpace(jsonData))
+                return [];
+
             var contacts = JsonSerializer.Deserialize<List<ContactObjects>>(jsonData);
             return contacts ?? [];
         }
