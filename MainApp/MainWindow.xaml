@@ -13,7 +13,7 @@
         mc:Ignorable="d"
         
         Title="Contact application" Height="450" Width="300">
-    <Grid Margin="10">
+    <Grid>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 
@@ -30,7 +30,7 @@
                 </DataTemplate>
                 
                 <DataTemplate DataType="{x:Type viewmodel:ContactDetailsViewModel}">
-                    <views:EditContactView />
+                    <views:ContactDetailsView />
                 </DataTemplate>
 
             </ContentControl.Resources>

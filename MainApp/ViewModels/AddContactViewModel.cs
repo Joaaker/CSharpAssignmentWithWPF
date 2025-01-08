@@ -48,6 +48,7 @@ public partial class AddContactViewModel(IServiceProvider serviceProvider, ICont
             City ?? string.Empty
             );
 
+       
         var result = _contactService.AddContact(newContact);
         if (result)
         {

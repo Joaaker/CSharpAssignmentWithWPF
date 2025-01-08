@@ -65,16 +65,16 @@ public class MenuDialog(IContactService contactService)
         string email = Console.ReadLine()!;
 
         Console.Write("Enter a phone number: ");
-        var phoneNumber = Console.ReadLine()!;
+        string phoneNumber = Console.ReadLine()!;
 
         Console.Write("Enter a address: ");
-        var address = Console.ReadLine()!;
+        string address = Console.ReadLine()!;
 
         Console.Write("Enter a zip code: ");
-        var zipCode = Console.ReadLine()!;
+        string zipCode = Console.ReadLine()!;
 
         Console.Write("Enter a city: ");
-        var city = Console.ReadLine()!;
+        string city = Console.ReadLine()!;
 
         try
         {

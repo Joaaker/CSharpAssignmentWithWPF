@@ -21,7 +21,7 @@ public partial class App : Application
             {
                 services.AddSingleton<IFileService>(new FileService(AppDomain.CurrentDomain.BaseDirectory, "contcts.json"));
                 services.AddSingleton<IContactRepository, ContactRepository>();
-                services.AddTransient<IContactService, ContactService>();
+                services.AddSingleton<IContactService, ContactService>();
 
                 services.AddSingleton<MainViewModel>();
                 services.AddSingleton<MainWindow>();
@@ -37,8 +37,6 @@ public partial class App : Application
 
                 services.AddTransient<ContactDetailsViewModel>();
                 services.AddTransient<ContactDetailsView>();
-
-
             })
             .Build();
 

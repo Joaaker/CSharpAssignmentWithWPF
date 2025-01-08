@@ -12,36 +12,53 @@
              d:DesignHeight="650" d:DesignWidth="300">
 
     <Grid Margin="5">
-        <StackPanel Margin="0,0,0,-12">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Label Content="Edit contact" Margin="10" HorizontalAlignment="Center" />
+                
+                <!--  Detta är genererat av Chat GPT o1 - Visar en text sträng samt en binding i samma Label -->
+                <Label Margin="10" HorizontalAlignment="Center">
+                    <TextBlock>
+                        <Run Text="Contact id: " />
+                        <Run Text="{Binding Contact.Id}" />
+                    </TextBlock>
+                </Label>
+ 
+                <Label Content="First Name" Margin="0, 10"/>
+                <TextBox Text="{Binding Contact.FirstName}"/>
 
-            <Label Content="{Binding Title}" Margin="10" HorizontalAlignment="Center" />
+                <Label Content="Last Name" Margin="0, 10"/>
+                <TextBox Text="{Binding Contact.LastName}"/>
 
-            <Label Content="First Name" Margin="0, 10"/>
-            <TextBox/>
+                <Label Content="Email" Margin="0, 10"/>
+                <TextBox Text="{Binding Contact.Email}"/>
 
-            <Label Content="Last Name" Margin="0, 10"/>
-            <TextBox/>
+                <Label Content="Phone Number" Margin="0, 10"/>
+                <TextBox Text="{Binding Contact.PhoneNumber}"/>
 
-            <Label Content="Email" Margin="0, 10"/>
-            <TextBox/>
+                <Label Content="Address" Margin="0, 10"/>
+                <TextBox Text="{Binding Contact.Address}"/>
 
-            <Label Content="Phone Number" Margin="0, 10"/>
-            <TextBox/>
+                <Label Content="Zip Code" Margin="0, 10"/>
+                <TextBox Text="{Binding Contact.ZipCode}"/>
 
-            <Label Content="Address" Margin="0, 10"/>
-            <TextBox/>
+                <Label Content="City" Margin="0, 10"/>
+                <TextBox Text="{Binding Contact.City}"/>
 
-            <Label Content="Zip Code" Margin="0, 10"/>
-            <TextBox Text="deasd" />
+                <Button Content="Save" 
+                    Margin="20" 
+                    Background="Green"/>
 
-            <Label Content="City" Margin="0, 10"/>
-            <TextBox Text="test" />
-            
-            <Button Content="Save" Margin="20"/>
-            <Button Content="Back" Margin="20" Command="{Binding CancelCommand}"/>
+                <Button Content="Cancel" 
+                    Margin="20" 
+                    Command="{Binding CancelCommand}" 
+                    Background="Azure"/>
 
-        </StackPanel>
+                <Button Content="Delete contact" 
+                    Margin="20" 
+                    Background="Red"/>
 
-
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

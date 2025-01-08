@@ -31,14 +31,12 @@ public partial class ListContactsViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void GoToEditContact(ContactObjects contact)
+    private void GoToDetailsView(ContactObjects contact) 
     {
+        var contactDetailsViewModel = _serviceProvider.GetRequiredService<ContactDetailsViewModel>();
+        contactDetailsViewModel.Contact = contact;
 
         var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
-        mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<EditContactViewModel>();
-    }
-    [RelayCommand]
-    private void GoToDetailsView() 
-    { 
+        mainViewModel.CurrentViewModel = contactDetailsViewModel;
     }
 }

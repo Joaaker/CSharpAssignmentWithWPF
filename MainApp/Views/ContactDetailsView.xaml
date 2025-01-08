@@ -10,6 +10,55 @@
              Background="White"
              d:DesignHeight="450" d:DesignWidth="300">
     <Grid>
-            
+        <ScrollViewer Grid.Row="0"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto" Margin="0">
+            <StackPanel Margin="10">
+                <Label Content="Contact details" Margin="10" HorizontalAlignment="Center"/>
+
+                <!--  Detta är genererat av Chat GPT o1 - Visar en text sträng samt en binding i samma Label -->
+                <Label Margin="10" HorizontalAlignment="Center">
+                    <TextBlock>
+                        <Run Text="Contact id: " />
+                        <Run Text="{Binding Contact.Id}" />
+                    </TextBlock>
+                </Label>
+
+                <Label Content="First Name"/>
+                <Label Content="{Binding Contact.FirstName}" Margin="0, 0 ,0 ,15"/>
+                
+                <Label Content="Last Name"/>
+                <Label Content="{Binding Contact.LastName}" Margin="0, 0 ,0 ,15"/>
+
+                <Label Content="Email"/>
+                <Label Content="{Binding Contact.Email}" Margin="0, 0 ,0 ,15"/>
+                
+                <Label Content="Phone Number"/>
+                <Label Content="{Binding Contact.PhoneNumber}" Margin="0, 0 ,0 ,15"/>
+
+                <Label Content="Address"/>
+                <Label Content="{Binding Contact.Address}" Margin="0, 0 ,0 ,15"/>
+
+                <Label Content="Zip Code"/>
+                <Label Content="{Binding Contact.ZipCode}" Margin="0, 0 ,0 ,15"/>
+
+                <Label Content="City"/>
+                <Label Content="{Binding Contact.City}" Margin="0, 0 ,0 ,15"/>
+
+                <Button Content="Back" Command="{Binding GoBackCommand}" 
+                        Margin="20"  
+                        Background="Azure"/>
+                
+                <Button Content="Edit" Command="{Binding GoToEditContactCommand}"
+                        CommandParameter="{Binding Contact}"
+                        Margin="20" 
+                        Background="LightGoldenrodYellow"/>
+                
+                <Button Content="Delete contact" 
+                        Margin="20" 
+                        Background="Red"/>
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </UserControl>

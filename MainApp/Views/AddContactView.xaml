@@ -10,37 +10,40 @@
              mc:Ignorable="d" 
              Background="White"
              d:DesignHeight="450" d:DesignWidth="300">
-    <Grid Margin="5">
-        <StackPanel>
+    <Grid>
+        <ScrollViewer Grid.Row="0"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto" Margin="0">
+            <StackPanel Margin="10">
 
-            <Label Content="Add new contact" Margin="10" HorizontalAlignment="Center"/>
+                <Label Content="Add new contact" Margin="10" HorizontalAlignment="Center"/>
 
-            <Label Content="First Name" Margin="0, 10"/>
-            <TextBox Text="{Binding FirstName}" />
+                <Label Content="First Name" Margin="0, 10"/>
+                <TextBox Text="{Binding FirstName}" />
 
-            <Label Content="Last Name" Margin="0, 10"/>
-            <TextBox Text="{Binding LastName}" />
+                <Label Content="Last Name" Margin="0, 10"/>
+                <TextBox Text="{Binding LastName}" />
 
-            <Label Content="Email" Margin="0, 10"/>
-            <TextBox Text="{Binding Email}"/>
+                <Label Content="Email" Margin="0, 10"/>
+                <TextBox Text="{Binding Email}"/>
 
-            <Label Content="Phone Number" Margin="0, 10"/>
-            <TextBox Text="{Binding PhoneNumber}" />
+                <Label Content="Phone Number" Margin="0, 10"/>
+                <TextBox Text="{Binding PhoneNumber}" />
             
-            <Label Content="Address" Margin="0, 10"/>
-            <TextBox Text="{Binding Address}" />
+                <Label Content="Address" Margin="0, 10"/>
+                <TextBox Text="{Binding Address}" />
 
-            <Label Content="Zip Code" Margin="0, 10"/>
-            <TextBox Text="{Binding ZipCode}" />
+                <Label Content="Zip Code" Margin="0, 10"/>
+                <TextBox Text="{Binding ZipCode}" />
 
-            <Label Content="City" Margin="0, 10"/>
-            <TextBox Text="{Binding City}" />
+                <Label Content="City" Margin="0, 10"/>
+                <TextBox Text="{Binding City}" />
             
-            <Button Command="{Binding SaveCommand}" Content="Save" Margin="20"/>
-            <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="20" />
+                <Button Command="{Binding SaveCommand}" Content="Save" Margin="20"/>
+                <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="20" />
 
-        </StackPanel>
-
+            </StackPanel>
+         </ScrollViewer>
 
     </Grid>
 </UserControl>
