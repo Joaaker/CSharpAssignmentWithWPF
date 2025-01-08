@@ -7,8 +7,6 @@ public interface IContactService
     bool AddContact(ContactObjects contact);
     ContactObjects GetContactById(string id);
     IEnumerable<ContactObjects>? GetAllContacts();
-
-    //Redigera en kontakt 
-
-    //Radera en kontakt
+    bool UpdateContact(ContactObjects contact);
+    bool DeleteContact(string id);
 }

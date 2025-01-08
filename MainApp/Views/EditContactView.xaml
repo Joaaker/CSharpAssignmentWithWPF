@@ -45,18 +45,22 @@
                 <Label Content="City" Margin="0, 10"/>
                 <TextBox Text="{Binding Contact.City}"/>
 
-                <Button Content="Save" 
-                    Margin="20" 
-                    Background="Green"/>
+                <Button Content="Save"
+                        Command="{Binding SaveCommand}"
+                        CommandParameter="{Binding Contact}"
+                        Margin="20" 
+                        Background="MediumSeaGreen"/>
 
                 <Button Content="Cancel" 
-                    Margin="20" 
-                    Command="{Binding CancelCommand}" 
-                    Background="Azure"/>
+                        Margin="20" 
+                        Command="{Binding CancelCommand}" 
+                        Background="Azure"/>
 
-                <Button Content="Delete contact" 
+                <Button Content="Delete contact"
+                        Command="{Binding DeleteContactCommand}"
+                        CommandParameter="{Binding Contact}"
                     Margin="20" 
-                    Background="Red"/>
+                    Background="IndianRed"/>
 
             </StackPanel>
         </ScrollViewer>

@@ -48,15 +48,11 @@
                 <Button Content="Back" Command="{Binding GoBackCommand}" 
                         Margin="20"  
                         Background="Azure"/>
-                
+
                 <Button Content="Edit" Command="{Binding GoToEditContactCommand}"
                         CommandParameter="{Binding Contact}"
                         Margin="20" 
                         Background="LightGoldenrodYellow"/>
-                
-                <Button Content="Delete contact" 
-                        Margin="20" 
-                        Background="Red"/>
             </StackPanel>
         </ScrollViewer>
 

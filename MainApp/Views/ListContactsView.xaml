@@ -25,6 +25,7 @@
                    Margin="10" />
 
         <Button Content="Add new contact"
+                Padding="5"
                 Background="MediumSeaGreen"
                 Grid.Row="1" 
                 Command="{Binding GoToAddContactCommand}"
@@ -51,7 +52,7 @@
                                     CommandParameter="{Binding .}"
                                     Command="{Binding DataContext.GoToDetailsViewCommand,
                                     RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                    Width="50"
+                                    Width="60"
                                     Height="30"
                                     Grid.Column="2"
                                     Margin="10,5" />

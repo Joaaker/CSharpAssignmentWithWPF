@@ -22,12 +22,34 @@ public partial class EditContactViewModel : ObservableObject
     [ObservableProperty]
     private ContactObjects _contact = new("", "", "", "", "", "", "", "");
 
-
-
     [RelayCommand]
+    private void Save()
+    {
+        var result = _contactService.UpdateContact(Contact);
+
+        if (result)
+        {
+            var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+            mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ListContactsViewModel>();
+        }
+
+    }
+
+        [RelayCommand]
     private void Cancel()
     {
         var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
         mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ListContactsViewModel>();
     }
-}
+
+    [RelayCommand]
+    private void DeleteContact(ContactObjects contact)
+    {
+        var result = _contactService.DeleteContact(contact.Id);
+        if (result)
+        {
+            var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+            mainViewModel.CurrentViewModel = _serviceProvider.GetRequiredService<ListContactsViewModel>();
+        }
+    }
+    }

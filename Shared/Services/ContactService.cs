@@ -68,7 +68,69 @@ public class ContactService(IContactRepository contactRepository) : IContactServ
         }
     }
 
-    //Redigera en kontakt 
+    public bool UpdateContact(ContactObjects contact)
+    {
+        try
+        {
+            if (contact == null)
+            {
+                Debug.WriteLine("Contact cannot be null");
+                return false;
+            }
+            var contactList = contactRepository.GetContacts() ?? [];
+            var contactToUpdate = contactList.FirstOrDefault(c => c.Id == contact.Id);
+            if (contactToUpdate == null)
+            {
+                Debug.WriteLine("Contact was not found.");
+                return false;
+            }
 
-    //Radera en kontakt
+            contactToUpdate.FirstName = contact.FirstName;
+            contactToUpdate.LastName = contact.LastName;
+            contactToUpdate.Email = contact.Email;
+            contactToUpdate.PhoneNumber = contact.PhoneNumber;
+            contactToUpdate.Address = contact.Address;
+            contactToUpdate.ZipCode = contact.ZipCode;
+            contactToUpdate.City = contact.City;
+
+            contactRepository.SaveContacts(contactList);
+            return true;
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return false;
+        }
+
+    }
+
+    public bool DeleteContact(string id)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                Debug.WriteLine("ID cannot be null or empty");
+                return false;
+            }
+
+            var contactList = contactRepository.GetContacts() ?? [];
+            var contactToDelete = contactList.FirstOrDefault(c => c.Id == id);
+            if (contactToDelete == null)
+            {
+                Debug.WriteLine($"No contact with ID {id} was found.");
+                return false;
+            }
+
+            contactList.Remove(contactToDelete);
+            contactRepository.SaveContacts(contactList);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return false;
+        }
+    }
 }
