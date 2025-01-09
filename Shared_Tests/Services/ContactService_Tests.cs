@@ -15,6 +15,7 @@ public class ContactService_Tests
         _contactRepositoryMock = new Mock<IContactRepository>();
         _contactService = new ContactService(_contactRepositoryMock.Object);
     }
+
     [Fact]
     public void AddContact_ShouldReturnTrue_WhenSuccess()
     {
@@ -71,5 +72,44 @@ public class ContactService_Tests
         Assert.Equal("Vägen 1", result.Address);
         Assert.Equal("54 321", result.ZipCode);
         Assert.Equal("Göteborg", result.City);
+    }
+
+    [Fact]
+    public void UpdateContact_ShouldReturnTrue_WhenSuccess()
+    {
+        // arange
+        var expectedContacts = new List<ContactObjects>
+        {
+            new("abcd1234", "Pelle", "Svanslös", "pelle@domain.com", "123456789", "Gatan 1", "123 45", "Stockholm"),
+            new("1234abcd", "Lille", "Skutt", "skutt@domain.com", "987654321", "Vägen 1", "54 321", "Göteborg")
+        };
+        _contactRepositoryMock.Setup(c => c.GetContacts()).Returns(expectedContacts);
+        var contactToUpdate = new ContactObjects("abcd1234", "John", "Doe", "John@domain.com", "123456789", "Gatan 1", "123 45", "Stockholm");
+
+        // act
+        var result = _contactService.UpdateContact(contactToUpdate);
+
+        // assert
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void DeleteContact_ShouldReturnTrue_WhenSuccess()
+    {
+
+        // arange
+        var expectedContacts = new List<ContactObjects>
+        {
+            new("abcd1234", "Pelle", "Svanslös", "pelle@domain.com", "123456789", "Gatan 1", "123 45", "Stockholm"),
+            new("1234abcd", "Lille", "Skutt", "skutt@domain.com", "987654321", "Vägen 1", "54 321", "Göteborg")
+        };
+        _contactRepositoryMock.Setup(c => c.GetContacts()).Returns(expectedContacts);
+        var contactToDelete = new ContactObjects("abcd1234", "Pelle", "Svanslös", "pelle@domain.com", "123456789", "Gatan 1", "123 45", "Stockholm");
+
+        // act
+        var result = _contactService.DeleteContact("abcd1234");
+
+        // assert   
+        Assert.True(result);
     }
 }
