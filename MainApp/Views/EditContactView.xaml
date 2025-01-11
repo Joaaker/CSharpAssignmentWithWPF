@@ -9,7 +9,7 @@
              
              mc:Ignorable="d" 
              Background="White"
-             d:DesignHeight="650" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="300">
 
     <Grid Margin="5">
         <ScrollViewer HorizontalScrollBarVisibility="Auto">
@@ -54,7 +54,7 @@
                 <Button Content="Cancel" 
                         Margin="20" 
                         Command="{Binding CancelCommand}" 
-                        Background="Azure"/>
+                        Background="LightGoldenrodYellow"/>
 
                 <Button Content="Delete contact"
                         Command="{Binding DeleteContactCommand}"

@@ -47,12 +47,12 @@
 
                 <Button Content="Back" Command="{Binding GoBackCommand}" 
                         Margin="20"  
-                        Background="Azure"/>
+                        Background="LightGoldenrodYellow"/>
 
                 <Button Content="Edit" Command="{Binding GoToEditContactCommand}"
                         CommandParameter="{Binding Contact}"
                         Margin="20" 
-                        Background="LightGoldenrodYellow"/>
+                        Background="Orange"/>
             </StackPanel>
         </ScrollViewer>
 

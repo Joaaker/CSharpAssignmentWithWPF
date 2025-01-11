@@ -38,9 +38,9 @@
 
                 <Label Content="City" Margin="0, 10"/>
                 <TextBox Text="{Binding City}" />
-            
-                <Button Command="{Binding SaveCommand}" Content="Save" Margin="20"/>
-                <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="20" />
+
+                <Button Command="{Binding SaveCommand}" Content="Save" Margin="20" Background="MediumSeaGreen"/>
+                <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="20" Background="LightGoldenrodYellow"/>
 
             </StackPanel>
          </ScrollViewer>
